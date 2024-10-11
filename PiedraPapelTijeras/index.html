@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piedra papel y tijeras</title>
+<link rel="stylesheet" href="./stytle.css">
+</head>
+<body>
+    <div class="container">
+        <div class="imagenes"> 
+            <picture>
+                <img src="./piedra.png" alt="Piedra" data-id="rock">
+            </picture> 
+            <picture>
+                <img src="./papel.png" alt="Papel" data-id="paper">
+            </picture>
+            <picture>
+                <img src="./tijeras.png" alt="Tijeras" data-id="scissors">
+            </picture>
+        </div>
+
+        <div class="choice">
+            <picture>
+                <img id="choiceUser" src="" alt="Elección del Jugador">
+            </picture>
+            <picture>
+                <img id="choiceComputer" src="" alt="Elección del Computadora">
+            </picture>
+        </div>
+
+        <div class="result">
+            <h1> <span id="winner"></span></h1>
+        </div>
+    </div>
+
+    <script>
+        const choices = document.querySelectorAll('.imagenes img');
+        const userChoiceImage = document.getElementById('choiceUser');
+        const computerChoiceImage = document.getElementById('choiceComputer');
+        const resultText = document.getElementById('winner');
+
+        const choicesMap = {
+            rock: './piedra.png',
+            paper: './papel.png',
+            scissors: './tijeras.png'
+        };
+
+        choices.forEach(choice => {
+            choice.addEventListener('click', () => {
+                const userChoice = choice.dataset.id;
+                userChoiceImage.src = choicesMap[userChoice];
+
+                const computerChoice = getComputerChoice();
+                computerChoiceImage.src = choicesMap[computerChoice];
+
+                const winner = getWinner(userChoice, computerChoice);
+                resultText.textContent = winner;
+            });
+        });
+
+        function getComputerChoice() {
+            const choices = ['rock', 'paper', 'scissors'];
+            const randomIndex = Math.floor(Math.random() * choices.length);
+            return choices[randomIndex];
+        }
+
+        function getWinner(userChoice, computerChoice) {
+            if (userChoice === computerChoice) {
+                return 'Empate🏁';
+            }
+            if (
+                (userChoice === 'rock' && computerChoice === 'scissors') ||
+                (userChoice === 'paper' && computerChoice === 'rock') ||
+                (userChoice === 'scissors' && computerChoice === 'paper')
+            ) {
+                return 'Jugador Gana🏆';
+            } else {
+                return 'Computadora Gana💻';
+            }
+        }
+    </script>
+</body>
+</html>

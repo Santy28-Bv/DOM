@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>div dinamico</title>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: grid;
+            place-items: center;
+        }
+
+        .container {
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+            border-radius: 0px;
+            box-shadow: 10px 10px 5px black;
+            transition: all 0.3s ease; 
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container"></div>
+
+    <div class="parametros">
+        <label for="height">Altura</label>
+        <input type="range" id="height" min="0" max="500">
+        <label for="width">Anchura</label>
+        <input type="range" id="width" min="0" max="500">
+        <label for="radius">Radio</label>
+        <input type="range" id="radius" min="0" max="500">
+    </div>
+    <div>
+        <label for="shadow">Sombra</label>
+        <input type="range" id="shadow" min="0" max="500"> 
+    </div>
+
+    <script>
+        const inputAlto = document.querySelector('#height');
+        const inputAncho = document.querySelector('#width');
+        const inputRadio = document.querySelector('#radius');
+        const inputSombra = document.querySelector('#shadow');
+        const figure = document.querySelector('.container');
+
+        // Actualizar altura
+        inputAlto.addEventListener('input', (event) => {
+            figure.style.height = `${event.target.value}px`;
+        });
+
+        // Actualizar anchura
+        inputAncho.addEventListener('input', (event) => {
+            figure.style.width = `${event.target.value}px`;
+        });
+
+        // Actualizar radio del borde
+        inputRadio.addEventListener('input', (event) => {
+            figure.style.borderRadius = `${event.target.value}px`;
+        });
+
+        // Actualizar sombra (blur)
+        inputSombra.addEventListener('input', (event) => {
+            const blur = event.target.value;
+            figure.style.boxShadow = `10px 10px ${blur}px rgba(0, 0, 0, 0.5)`; 
+        });
+    </script>
+</body>
+
+</html>

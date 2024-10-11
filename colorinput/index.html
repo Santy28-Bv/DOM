@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,24 +11,24 @@
             display: grid;
             place-items: center;
         }
-        body div{
+        body div {
             display: flex;
-            flex-direction:colum;
+            flex-direction: column; /* Corregido: "colum" -> "column" */
+            gap: 10px; /* Agregado para espaciar los elementos */
         }
     </style>
 </head>
 <body>
     <div>
-        <label for= "red">Rojo</label>      
-        <input type="range" id="red" min="0" max="255" >
+        <label for="red">Rojo</label>      
+        <input type="range" id="red" min="0" max="255">
 
-        <label for= "green">Verde</label>      
+        <label for="green">Verde</label>      
         <input type="range" id="green" min="0" max="255">
 
-        <label for= "blue">Azul</label>      
+        <label for="blue">Azul</label>      
         <input type="range" id="blue" min="0" max="255">      
     </div>
-    <script src="./"></script>
+    <script src="./app.js"></script>
 </body>
 </html>
-
