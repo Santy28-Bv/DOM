@@ -2,6 +2,7 @@ const lienzo = document.querySelector('#lienzo');
 const ctx = lienzo.getContext('2d');
 
 
+
 //Esquina superior derecha
 ctx.fillStyle = '#ac8a3e'; 
 ctx.fillRect(700, 0, 100, 100);

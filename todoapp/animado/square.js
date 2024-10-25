@@ -1,33 +1,29 @@
 const lienzo = document.querySelector('#lienzo');
 const ctx = lienzo.getContext('2d');
 
-let radio = 1;
-let sentido =  true;
- const circle = {
-    radio: 1,
-    sentido: true,
-    color: 'rgb(100,20,30)',
-    getColor: function () {
-        // const r = Math.floor(Math.random() * 255)
-        // const g = Math.floor(Math.random() * 255)
-        // const b = Math.floor(Math.random() * 255)
-        this.color = `hsl(${radio},50%,70%)`
-    },
-    show: function(){
-        ctx.fillStyle = this.color
-        ctx.clearRect(0,0, lienzo.width,lienzo.height)
-        ctx.beginPath()
-        ctx.arc(300,200,radio,0,Math.PI * 2, sentido);
-        ctx.fill();
-    }
+let x = 297;
+let y = 198;
+let width = 6;
+let height = 4;
+let grow = true;
 
-}
+setInterval(() => {
+    ctx.clearRect(0,0, lienzo.width,lienzo.height)
+ ctx.fillStyle = `hsl(${height},50%,50%)`
+ ctx.fillRect(x,y,width,height)
+ if(grow){
+    x -= 3;
+    width += 6;
+    y -= 2;
+    height += 4;
 
+ }else {
+    x += 3 
+    width -= 6
+    y += 2
+    height += 4
+ }
 
-setInterval(() =>{
-    circle.show()
-    circle.getColor() 
-radio = sentido ? radio + 1 : radio -1
- sentido = radio > 200? !sentido : sentido
- sentido = radio < 1? !sentido : sentido
-},1)
+ grow = width > 600? !grow: grow;
+ grow = width < 6? !grow: grow;
+},30)

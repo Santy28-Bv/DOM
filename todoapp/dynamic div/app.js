@@ -1,45 +1,26 @@
-const inputWidth = document.querySelector('#width');
-const inputHeight = document.querySelector('#height'); 
-const inputShadow = document.querySelector('#shadow');
-const inputBorder = document.querySelector('#border');
+const inputAlto = document.querySelector('#height');
+const inputAncho = document.querySelector('#width');
+const inputRadio = document.querySelector('#radius');
+const inputSombra = document.querySelector('#shadow');
+const figure = document.querySelector('.container');
 
-const container = document.querySelector('.container');
-
-let width = 0;
-let height = 0; 
-let shadow = 0;
-let border = 0;
-
-const dynamic = () => {
-    return `
-    width: ${width}px;
-    height: ${height}px; 
-    box-shadow: ${shadow}px;
-    border-radius: ${border}px;
-    `;
-}
-
-inputHeight.addEventListener('input', (e) => { 
-    console.log(e.target.value);
-    height = e.target.value;
-    container.style = dynamic(); 
+// Actualizar altura
+inputAlto.addEventListener('input', (event) => {
+    figure.style.height = `${event.target.value}px`;
 });
 
-inputWidth.addEventListener('input', (e) => {
-    console.log(e.target.value);
-    width = e.target.value;
-    container.style = dynamic(); 
+// Actualizar anchura
+inputAncho.addEventListener('input', (event) => {
+    figure.style.width = `${event.target.value}px`;
 });
 
-inputShadow.addEventListener('input', (e) => {
-    console.log(e.target.value);
-    shadow = e.target.value;
-    container.style = dynamic(); 
+// Actualizar radio del borde
+inputRadio.addEventListener('input', (event) => {
+    figure.style.borderRadius = `${event.target.value}px`;
 });
 
-inputBorder.addEventListener('input', (e) => {
-    console.log(e.target.value);
-    border = e.target.value;
-    container.style = dynamic(); 
+// Actualizar sombra (blur)
+inputSombra.addEventListener('input', (event) => {
+    const blur = event.target.value;
+    figure.style.boxShadow = `10px 10px ${blur}px rgba(0, 0, 0, 0.5)`; 
 });
-
