@@ -13,14 +13,23 @@
             display: grid;
             place-items: center;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
-            background-color: rgb(255, 255, 255);
-            color: rgb(0, 225, 255);
+            background-color: #000000;
+            color: rgb(255, 0, 0);
             text-align: center;
         }
 
         #lienzo {
-            border: 1px solid black;
+            border: 4px solid rgb(255, 255, 255);
             background-color: white;
+        }
+
+        button {
+            margin: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+            border: 4px solid rgb(255, 255, 255);
+            background-color: #d6c909;
+            color: rgb(0, 0, 0);
         }
     </style>
 </head>
@@ -28,9 +37,10 @@
     <div class="container">
         <h1>Cuadrado animacion</h1>
         <canvas id="lienzo" width="600" height="400"></canvas> 
-    <script src="./square.js"></script>
+    </div>
     <a href="http://127.0.0.1:5500/DOM/index.html">
         <button>Regresar al menu 🐒🐒🐒</button>
     </a>
+    <script src="./square.js"></script>
 </body>
 </html>
